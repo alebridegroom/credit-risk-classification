@@ -4,15 +4,9 @@
 
 ## Overview of the Analysis
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
 
-* Explain the purpose of the analysis.
-* Explain what financial information the data was on, and what you needed to predict.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-* Describe the stages of the machine learning process you went through as part of this analysis.
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any resampling method).
 
-The purpose of this analysis is to tell whether a borrower is credit worthy and to prevent the lender from loosing money. We will use machine learning method to predict whether there are healthy or unhealthy loans.  We did value counts of the loan status with 0 being healthy and 1 being unhealty.  The methods we used are LogisticRegression model. 
+The purpose of this analysis is to tell whether a borrower is credit-worthy and to prevent the lender from losing money.  The banks would like to know whether the loan is safe to give or not. We will use machine learning methods to predict whether there are healthy or unhealthy loans.  The data set we are using shows lending activity from a peer-to-peer lending services company.  We did value counts of the loan status with 0 being healthy and 1 being unhealthy.  The method we used is. LogisticRegression model and OverSharingSampling. 
 
 ## Results
 
@@ -20,17 +14,32 @@ Using bulleted lists, describe the balanced accuracy scores and the precision an
 
 * Machine Learning Model 1:
   * Description of Model 1 Accuracy, Precision, and Recall scores.
+  * The Logistic Regression model produced a 99% accuracy score.
+![LogisticRegression](https://github.com/alebridegroom/credit-risk-classification/assets/91504694/6b461060-244f-468d-922c-b3391f55a0f3)
+
+The recall score was 100% for healthy loans but not so high forthe non healthy loans which was a 87%.  This tells us that the model will predict healthy loans rather than unhealthy loans and it will predict unhealthy loans 87% of the time which is not too good if you are the CEO of the company.   This could be due to the data being unbalanced which we showed the the majority of the data is in the  healthy loans (75036)  and only 2500 of the data is in the unhealthy category.
+
+<img width="303" alt="logisitcmatrix" src="https://github.com/alebridegroom/credit-risk-classification/assets/91504694/73c800f5-5384-40a1-a541-bc9ee42c5fc1">
+
+For the confusion matrix 18679 were identified as healthy loans coorectly and 558 unhealthy loans were identified correctly, so for recall, it only identifies the true negatives 89% of the time.
+
 
 
 
 * Machine Learning Model 2:
   * Description of Model 2 Accuracy, Precision, and Recall scores.
+  * For the second one, the random over sampling had a accuracy score of 99%
+  * ![randomoversampling](https://github.com/alebridegroom/credit-risk-classification/assets/91504694/54d91819-0623-4b12-9026-097c25210bfd)
+ 
+  * this one has the same precision as the previous one but a higher recall score meaning it can both correctly identify the true positives and true negatives 100% of the time.
+
+
   
 
 ## Summary
 
 Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
-* Which one seems to perform best? How do you know it performs best?
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
+* The random over sampling seemed to perform the best since we balanced more of the data.
+* it is more important to predict the 1's (unhealthy loans) because we could possibly loose buyers if we suspect them of fraud but aren't actually frauds and also we need to correctly identify fraud so the company doesn't loose money.
 
 If you do not recommend any of the models, please justify your reasoning.
